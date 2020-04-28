@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../../components/Header/index";
+import Box from "../../components/Box";
 
 const Home = () => {
   return (
     <div className="container">
-      <Header />
+      <Box />
     </div>
   );
 };

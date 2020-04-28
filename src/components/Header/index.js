@@ -1,14 +1,13 @@
 import React from "react";
-import "./styles.css";
-import logo from "../../assets/img/logo.png";
+import * as S from "./styles";
 
 const Header = () => {
   return (
-    <div className="container">
-      <div className="container-logo">
-        <img src={logo} className="logo" />
-      </div>
-    </div>
+    <S.container className="containerHeader">
+      <S.containerLogo className="containerLogo">
+        <S.logo className="logo" />
+      </S.containerLogo>
+    </S.container>
   );
 };
 

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import logoImage from "../../assets/img/logo.png";
 
-export const container = styled.div``;
+export const container = styled.div`
+  margin-bottom: 50px;
+`;
 
 export const containerLogo = styled.div`
   height: 50px;

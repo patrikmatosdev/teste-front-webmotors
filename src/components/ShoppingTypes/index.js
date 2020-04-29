@@ -8,15 +8,19 @@ import ButtonSell from "./ButtonSell";
 const ShoppingTypes = () => {
   return (
     <S.container>
-      <S.containerType>
-        <VehicleType icon={Car} title="CARROS" type="COMPRAR" />
-      </S.containerType>
-      <S.containerType>
-        <VehicleType icon={Motorcycle} title="MOTOS" type="COMPRAR" />
-      </S.containerType>
-      <S.containerButton>
-        <ButtonSell />
-      </S.containerButton>
+      <S.Col>
+        <S.containerType>
+          <VehicleType icon={Car} title="CARROS" type="COMPRAR" />
+        </S.containerType>
+        <S.containerType>
+          <VehicleType icon={Motorcycle} title="MOTOS" type="COMPRAR" />
+        </S.containerType>
+      </S.Col>
+      <S.Col>
+        <S.containerButton>
+          <ButtonSell />
+        </S.containerButton>
+      </S.Col>
     </S.container>
   );
 };

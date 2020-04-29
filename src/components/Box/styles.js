@@ -4,6 +4,6 @@ export const container = styled.div`
   width: 933px;
   /* height: 312px; */
   margin: auto;
-  background: #ddd;
+  background: #eee;
   padding: 10px;
 `;

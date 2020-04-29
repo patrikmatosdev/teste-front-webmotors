@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
-export const container = styled.div``;
+export const container = styled.div`
+  display: flex;
+  flex: 1;
+`;
+export const Col = styled.div`
+  display: flex;
+  flex: 1;
+`;
 
 export const containerType = styled.div`
-  width: 18%;
-  display: inline-block;
-  vertical-align: top;
-  border-bottom: 2px solid #c4c4c4;
-  cursor: pointer;
+  flex: 0 0 130px;
+  border-bottom: 3px solid #dddddd;
 
   &:hover {
-    border-bottom: 2px solid #dc143c;
+    border-bottom: 3px solid #dc143c;
   }
 `;
 
 export const containerButton = styled.div`
-  display: inline-block;
-  vertical-align: bottom;
-  width: 64%;
+  flex: 1;
+  padding-bottom: 7px;
 `;

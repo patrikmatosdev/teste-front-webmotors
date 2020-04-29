@@ -53,7 +53,7 @@ const Form = () => {
             </S.Col>
 
             <S.Col>
-              <Select />
+              <Select placeholder="Faixa de Preço" />
             </S.Col>
           </S.Row>
         </S.containerItems>
@@ -61,16 +61,16 @@ const Form = () => {
         <S.containerItems className="containerItems">
           <S.Row>
             <S.Col>
-              <Select />
+              <Select placeholder="Marca:" />
             </S.Col>
 
             <S.Col>
-              <Select />
+              <Select placeholder="Modelo:" />
             </S.Col>
           </S.Row>
           <S.Row>
             <S.Col>
-              <Select />
+              <Select placeholder="Versão:" />
             </S.Col>
           </S.Row>
         </S.containerItems>

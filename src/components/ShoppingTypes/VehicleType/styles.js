@@ -1,39 +1,47 @@
 import styled from "styled-components";
 
-export const container = styled.div``;
+export const container = styled.button`
+  display: flex;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+`;
 
 export const containerIcon = styled.div`
-  display: inline-block;
-  vertical-align: bottom;
-  width: 42%;
-  padding: 0 10px 0 0;
+  display: flex;
+  flex: 0 0 50px;
+  align-self: center;
+  justify-content: center;
 `;
 
 export const icon = styled.div`
-  width: 42px;
-  height: 42px;
+  width: 24px;
+  height: 24px;
   background-image: url('${(props) => props.icon}');
   background-size: cover;
   background-position: center;
-  float: right;
 `;
 
 export const containerType = styled.div`
-  display: inline-block;
-  vertical-align: top;
-  width: 39%;
+  flex: 1;
+  text-align: left;
 `;
 
-export const containerLabel = styled.div``;
+export const containerLabel = styled.div`
+  flex: 1;
+`;
 
-export const containerTitle = styled.div``;
+export const containerTitle = styled.div`
+  flex: 1;
+`;
 
-export const label = styled.label`
-  font-size: 12px;
+export const label = styled.span`
+  font-size: 8px;
   color: #bbb;
 `;
 
-export const title = styled.label`
-  font-size: 22px;
-  color: #dc143c;
+export const title = styled.span`
+  font-size: 16px;
+  color: #bbb;
 `;

@@ -2,18 +2,20 @@ import styled from "styled-components";
 import logoImage from "../../assets/img/logo.png";
 
 export const container = styled.div`
-  margin-bottom: 50px;
+  padding-bottom: 20px;
 `;
 
 export const containerLogo = styled.div`
-  height: 50px;
-  width: 270px;
+  height: 35px;
+  width: 200px;
 `;
 
 export const logo = styled.div`
   background-image: url('${logoImage}');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+
 `;

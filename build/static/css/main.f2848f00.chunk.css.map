@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,iBAGE,QAAS,CACT,SAAU,CACV,qBACF,CAEA,UAEE,kCAAoC,CACpC,cACF","file":"main.f2848f00.chunk.css","sourcesContent":["*,\n*:before,\n*:after {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody,\nhtml {\n  font-family: \"Open Sans\", sans-serif;\n  cursor: default;\n}\n"]}

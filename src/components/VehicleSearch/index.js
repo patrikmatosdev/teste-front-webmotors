@@ -5,6 +5,7 @@ import IconInput from "./IconInput";
 import Image from "../../assets/img/local.png";
 import Select from "../Form/Select";
 import TogglerLink from "../Form/TogglerLink";
+import ButtonsForm from "../Form/ButtonsForm/index";
 
 const Form = (props) => {
   const [year, setYear] = useState();
@@ -95,7 +96,9 @@ const Form = (props) => {
         <S.Col>
           <TogglerLink>Busca Avançada</TogglerLink>
         </S.Col>
-        <S.Col>col 2</S.Col>
+        <S.Col>
+          <ButtonsForm />
+        </S.Col>
       </S.Row>
     </S.container>
   );

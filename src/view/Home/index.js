@@ -10,14 +10,15 @@ const Home = () => {
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
+    //Solicitar Todos
     async function FetchInitialData() {
       const response = await Axios.get(
-        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=1"
+        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
       );
-
+      // Conversão de chaves
       const parsedModels = response.data.map((model) => {
         return {
-          label: model.Name,
+          label: model.Model,
           value: model.ID,
         };
       });
@@ -25,6 +26,7 @@ const Home = () => {
       setModels(parsedModels);
     }
 
+    //Pegar os tipos
     async function FetchBrands() {
       const response = await Axios.get(
         "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make"

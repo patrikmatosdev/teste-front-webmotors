@@ -7,6 +7,7 @@ export const container = styled.div`
   border-radius: 5px;
   position: relative;
   background: white;
+  height: 35px;
 
   &:hover {
     border: 1px solid #aaa;
@@ -50,8 +51,9 @@ export const containerValue = styled.div`
 `;
 
 export const containerIcon = styled.div`
-  flex: 0 0 10px;
-  width: 10px;
+  flex: 0 0 15px;
+  width: 15px;
+  text-align: right;
   align-self: center;
 `;
 
@@ -67,6 +69,7 @@ export const clickable = styled.button`
 `;
 
 export const icon = styled.div`
+  display: inline-block;
   width: 7px;
   height: 7px;
   background-image: url('${iconImage}');
@@ -76,12 +79,14 @@ export const icon = styled.div`
 export const label = styled.div`
   color: #999;
   font-size: 14px;
+  white-space: nowrap;
 `;
 
 export const value = styled.div`
   color: #555;
   font-weight: bold;
   font-size: 14px;
+  white-space: nowrap;
 `;
 
 export const option = styled.button`
@@ -100,4 +105,14 @@ export const option = styled.button`
   &:focus {
     background: #eee;
   }
+
+  ${(props) => {
+    if (props.current) {
+      return `
+        background: #f4f4f4;
+      `;
+    }
+
+    return ``;
+  }}
 `;

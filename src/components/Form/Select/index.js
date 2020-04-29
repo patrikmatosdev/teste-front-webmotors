@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import * as S from "./styles";
 
 const Select = (props) => {
-  const { placeholder = "Change-Me", onChange, value, label, options } = props;
+  const {
+    placeholder = "Change-Me",
+    onChange,
+    value,
+    label,
+    options,
+    containerStyle,
+  } = props;
 
   const [showOptions, setShowOptions] = useState(false);
 
@@ -11,8 +18,16 @@ const Select = (props) => {
     setShowOptions(false);
   };
 
+  const displayLabel = (value) => {
+    const foundOption = options.find((op) => {
+      return op.value === value;
+    });
+
+    return foundOption ? foundOption.label : "";
+  };
+
   return (
-    <S.container>
+    <S.container style={containerStyle}>
       <S.clickable onClick={() => setShowOptions(!showOptions)}>
         {value ? (
           <React.Fragment>
@@ -20,7 +35,7 @@ const Select = (props) => {
               <S.label>{label}: </S.label>
             </S.containerLabel>
             <S.containerValue>
-              <S.value>{value}</S.value>
+              <S.value>{displayLabel(value)}</S.value>
             </S.containerValue>
             <S.containerIcon>
               <S.icon />
@@ -42,7 +57,12 @@ const Select = (props) => {
         <S.containerOptions visible={showOptions} className="containerOptions">
           {options.map((op) => {
             return (
-              <S.option onClick={() => _onChange(op)}>{op.label}</S.option>
+              <S.option
+                onClick={() => _onChange(op)}
+                current={value === op.value}
+              >
+                {op.label}
+              </S.option>
             );
           })}
         </S.containerOptions>

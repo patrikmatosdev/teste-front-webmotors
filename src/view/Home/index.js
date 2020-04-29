@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import Box from "../../components/Box";
+import BoxVehicle from "../../components/BoxVehicle";
 import Header from "../../components/Header/index";
 import ShoppingTypes from "../../components/ShoppingTypes";
 import VehicleSearch from "../../components/VehicleSearch";
@@ -48,11 +48,11 @@ const Home = () => {
 
   return (
     <div className="container">
-      <Box>
+      <BoxVehicle>
         <Header />
         <ShoppingTypes />
         <VehicleSearch brands={brands} models={models} />
-      </Box>
+      </BoxVehicle>
     </div>
   );
 };

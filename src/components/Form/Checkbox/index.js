@@ -1,11 +1,11 @@
 import React from "react";
 import * as S from "./styles";
 
-const CheckBox = (props) => {
+const CheckBox = ({ title, checked }) => {
   return (
-    <S.container>
-      <S.inputCheck type="checkbox" value="news" name="news" />
-      <S.label for="news">{props.title}</S.label>
+    <S.container checked={checked}>
+      <S.inputCheck>{checked && <S.checkMark />}</S.inputCheck>
+      <S.label for="news">{title}</S.label>
     </S.container>
   );
 };

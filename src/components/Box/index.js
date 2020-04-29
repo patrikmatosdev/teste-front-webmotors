@@ -1,17 +1,8 @@
 import React from "react";
 import * as S from "./styles";
-import Header from "../Header/index";
-import ShoppingTypes from "../ShoppingTypes";
-import Form from "../Form";
 
-const Box = () => {
-  return (
-    <S.container className="containerBox">
-      <Header />
-      <ShoppingTypes />
-      <Form />
-    </S.container>
-  );
+const Box = ({ children }) => {
+  return <S.container className="containerBox">{children}</S.container>;
 };
 
 export default Box;

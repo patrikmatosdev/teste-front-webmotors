@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import CheckBox from "../Form/Checkbox";
 import IconInput from "./IconInput";
@@ -7,6 +7,12 @@ import Select from "../Form/Select";
 import TogglerLink from "../Form/TogglerLink";
 
 const Form = () => {
+  const [year, setYear] = useState();
+
+  const onChangeYear = (option) => {
+    setYear(option.value);
+  };
+
   return (
     <S.container className="containerForm">
       <S.Row>
@@ -26,7 +32,24 @@ const Form = () => {
 
           <S.Row>
             <S.Col>
-              <Select />
+              <Select
+                placeholder="Ano Desejado"
+                label="Ano"
+                onChange={onChangeYear}
+                value={year}
+                options={[
+                  { label: "2020", value: 2020 },
+                  { label: "2019", value: 2019 },
+                  { label: "2018", value: 2018 },
+                  { label: "2017", value: 2017 },
+                  { label: "2016", value: 2016 },
+                  { label: "2015", value: 2015 },
+                  { label: "2014", value: 2014 },
+                  { label: "2013", value: 2013 },
+                  { label: "2012", value: 2012 },
+                  { label: "2011", value: 2011 },
+                ]}
+              />
             </S.Col>
 
             <S.Col>

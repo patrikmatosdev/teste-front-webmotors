@@ -5,6 +5,5 @@ export const container = styled.div`
   /* height: 312px; */
   margin: auto;
   background: #ddd;
-  overflow: hidden;
   padding: 10px;
 `;

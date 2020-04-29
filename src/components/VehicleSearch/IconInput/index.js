@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import Select from "../../Form/Select";
 
@@ -8,11 +8,11 @@ const IconInput = (props) => {
     borderBottomLeftRadius: 0,
   };
 
-  const distanceOptions = [
-    { label: "50km", value: 50 },
-    { label: "100km", value: 100 },
-    { label: "200km", value: 200 },
-  ];
+  const [distanceOptions, setDistanceOptions] = useState();
+
+  const onChangeDistance = (option) => {
+    setDistanceOptions(option.value);
+  };
 
   return (
     <S.container>
@@ -32,8 +32,9 @@ const IconInput = (props) => {
           containerStyle={containerStyle}
           placeholder="Raio"
           label="Raio"
-          value={100}
-          options={distanceOptions}
+          value={distanceOptions}
+          onChange={onChangeDistance}
+          options={props.mileages}
         />
       </S.distanceContainer>
     </S.container>

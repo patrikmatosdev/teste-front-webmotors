@@ -11,6 +11,8 @@ const Form = (props) => {
   const [year, setYear] = useState();
   const [model, setModel] = useState();
   const [brand, setBrand] = useState();
+  const [version, setVersion] = useState();
+  const [price, setPrice] = useState();
 
   const onChangeYear = (option) => {
     setYear(option.value);
@@ -22,6 +24,14 @@ const Form = (props) => {
 
   const onChangeBrand = (option) => {
     setBrand(option.value);
+  };
+
+  const onChangeVersion = (option) => {
+    setVersion(option.value);
+  };
+
+  const onChangePrice = (option) => {
+    setPrice(option.value);
   };
 
   return (
@@ -37,7 +47,7 @@ const Form = (props) => {
         <S.containerItems className="containerItems">
           <S.Row>
             <S.Col>
-              <IconInput icon={Image} />
+              <IconInput mileages={props.mileages} icon={Image} />
             </S.Col>
           </S.Row>
 
@@ -47,17 +57,19 @@ const Form = (props) => {
                 placeholder="Ano Desejado"
                 label="Ano"
                 onChange={onChangeYear}
+                options={props.yearsFab}
                 value={year}
-                options={[
-                  { label: "2020", value: 2020 },
-                  { label: "2019", value: 2019 },
-                  { label: "2018", value: 2018 },
-                ]}
               />
             </S.Col>
 
             <S.Col>
-              <Select placeholder="Faixa de Preço" />
+              <Select
+                placeholder="Faixa de Preço"
+                label="Preço"
+                onChange={onChangePrice}
+                options={props.prices}
+                value={price}
+              />
             </S.Col>
           </S.Row>
         </S.containerItems>
@@ -86,7 +98,13 @@ const Form = (props) => {
           </S.Row>
           <S.Row>
             <S.Col>
-              <Select placeholder="Versão:" />
+              <Select
+                placeholder="Versão:"
+                label="Versão"
+                onChange={onChangeVersion}
+                options={props.versions}
+                value={version}
+              />
             </S.Col>
           </S.Row>
         </S.containerItems>

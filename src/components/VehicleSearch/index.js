@@ -6,11 +6,21 @@ import Image from "../../assets/img/local.png";
 import Select from "../Form/Select";
 import TogglerLink from "../Form/TogglerLink";
 
-const Form = () => {
+const Form = (props) => {
   const [year, setYear] = useState();
+  const [model, setModel] = useState();
+  const [brand, setBrand] = useState();
 
   const onChangeYear = (option) => {
     setYear(option.value);
+  };
+
+  const onChangeModel = (option) => {
+    setModel(option.value);
+  };
+
+  const onChangeBrand = (option) => {
+    setBrand(option.value);
   };
 
   return (
@@ -41,13 +51,6 @@ const Form = () => {
                   { label: "2020", value: 2020 },
                   { label: "2019", value: 2019 },
                   { label: "2018", value: 2018 },
-                  { label: "2017", value: 2017 },
-                  { label: "2016", value: 2016 },
-                  { label: "2015", value: 2015 },
-                  { label: "2014", value: 2014 },
-                  { label: "2013", value: 2013 },
-                  { label: "2012", value: 2012 },
-                  { label: "2011", value: 2011 },
                 ]}
               />
             </S.Col>
@@ -61,11 +64,23 @@ const Form = () => {
         <S.containerItems className="containerItems">
           <S.Row>
             <S.Col>
-              <Select placeholder="Marca:" />
+              <Select
+                label="Marca"
+                placeholder="Marca:"
+                value={brand}
+                options={props.brands}
+                onChange={onChangeBrand}
+              />
             </S.Col>
 
             <S.Col>
-              <Select placeholder="Modelo:" />
+              <Select
+                label="Modelo"
+                onChange={onChangeModel}
+                options={props.models}
+                value={model}
+                placeholder="Modelo:"
+              />
             </S.Col>
           </S.Row>
           <S.Row>

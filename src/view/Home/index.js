@@ -6,24 +6,52 @@ import ShoppingTypes from "../../components/ShoppingTypes";
 import VehicleSearch from "../../components/VehicleSearch";
 
 const Home = () => {
-  const [fetchModel, setFetchModel] = useState([]);
+  const [models, setModels] = useState([]);
+  const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-    async function FetchModel() {
+    async function FetchInitialData() {
       const response = await Axios.get(
         "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=1"
       );
-      console.log(response.data);
+
+      const parsedModels = response.data.map((model) => {
+        return {
+          label: model.Name,
+          value: model.ID,
+        };
+      });
+
+      setModels(parsedModels);
     }
-    FetchModel();
+
+    async function FetchBrands() {
+      const response = await Axios.get(
+        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make"
+      );
+
+      const parsedBrands = response.data.map((brand) => {
+        return {
+          label: brand.Name,
+          value: brand.ID,
+        };
+      });
+
+      setBrands(parsedBrands);
+    }
+
+    FetchBrands();
+    FetchInitialData();
   }, []);
+
+  console.log(brands);
 
   return (
     <div className="container">
       <Box>
         <Header />
         <ShoppingTypes />
-        <VehicleSearch />
+        <VehicleSearch brands={brands} models={models} />
       </Box>
     </div>
   );

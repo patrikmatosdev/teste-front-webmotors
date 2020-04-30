@@ -9,16 +9,12 @@ export const Col = styled.div`
   flex: 1;
 `;
 
-export const containerType = styled.div`
+export const containerButton = styled.div`
   flex: 0 0 130px;
   border-bottom: 3px solid #dddddd;
-
-  &:hover {
-    border-bottom: 3px solid #dc143c;
-  }
 `;
 
-export const containerButton = styled.div`
+export const containerButtonSell = styled.div`
   flex: 1;
   padding-bottom: 7px;
 `;

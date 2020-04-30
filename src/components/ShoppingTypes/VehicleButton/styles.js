@@ -6,6 +6,18 @@ export const container = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
+
+  ${(props) => {
+    let subclass = "&:hover, &:focus";
+    if (props.isActive === true) subclass = "&";
+    return `
+      ${subclass} {
+        .title {
+          color: #a33 !important;
+        }
+      }
+    `;
+  }}
 `;
 
 export const containerIcon = styled.div`
@@ -38,7 +50,7 @@ export const containerTitle = styled.div`
 
 export const label = styled.span`
   font-size: 8px;
-  color: #bbb;
+  color: #ddd;
 `;
 
 export const title = styled.span`

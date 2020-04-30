@@ -1,9 +1,13 @@
 import React from "react";
 import * as S from "./styles";
 
-const VehicleType = (props) => {
+const VehicleButton = (props) => {
   return (
-    <S.container className="containerVehicleType">
+    <S.container
+      onClick={props.onClick}
+      isActive={props.isActive}
+      className="containerVehicleButton"
+    >
       <S.containerIcon className="containerIcon">
         <S.icon className="iconVehicle" icon={props.icon} />
       </S.containerIcon>
@@ -19,4 +23,4 @@ const VehicleType = (props) => {
   );
 };
 
-export default VehicleType;
+export default VehicleButton;

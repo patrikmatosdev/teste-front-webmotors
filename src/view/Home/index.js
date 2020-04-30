@@ -19,7 +19,8 @@ const Home = () => {
       const response = await Axios.get(
         "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
       );
-      // Conversão de chaves
+
+      //Solicitar Modelos
       const parsedModels = response.data.map((model) => {
         return {
           label: model.Model,
@@ -27,31 +28,15 @@ const Home = () => {
         };
       });
 
-      setModels(parsedModels);
-    }
-
-    //Pegar Marca
-    async function FetchBrands() {
-      const response = await Axios.get(
-        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make"
-      );
-
+      //Solicitar Marcas
       const parsedBrands = response.data.map((brand) => {
         return {
-          label: brand.Name,
+          label: brand.Make,
           value: brand.ID,
         };
       });
 
-      setBrands(parsedBrands);
-    }
-
-    // Pegar Versão
-    async function FetchVersion() {
-      const response = await Axios.get(
-        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
-      );
-
+      //Solicitar Versão
       const parsedVersions = response.data.map((version) => {
         return {
           label: version.Version,
@@ -59,31 +44,15 @@ const Home = () => {
         };
       });
 
-      setVersions(parsedVersions);
-    }
-
-    // Pegar Preços
-    async function FetchPrice() {
-      const response = await Axios.get(
-        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
-      );
-
-      const parsedPrice = response.data.map((price) => {
+      //Solicitar Preços
+      const parsedPrices = response.data.map((price) => {
         return {
           label: price.Price,
           value: price.ID,
         };
       });
 
-      setPrices(parsedPrice);
-    }
-
-    //Pegar Ano da Fabricação
-    async function FetchYearsFab() {
-      const response = await Axios.get(
-        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
-      );
-
+      // Solicitar Anos da Fabricação
       const parsedYearsFab = response.data.map((yearsFab) => {
         return {
           label: yearsFab.YearFab,
@@ -91,15 +60,7 @@ const Home = () => {
         };
       });
 
-      setYearsFab(parsedYearsFab);
-    }
-
-    //Pegar Quilometragem
-    async function FetchMileages() {
-      const response = await Axios.get(
-        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
-      );
-
+      //Solicitar Quilometragem
       const parsedMileages = response.data.map((yearsFab) => {
         return {
           label: yearsFab.KM,
@@ -108,13 +69,13 @@ const Home = () => {
       });
 
       setMileages(parsedMileages);
+      setYearsFab(parsedYearsFab);
+      setPrices(parsedPrices);
+      setVersions(parsedVersions);
+      setBrands(parsedBrands);
+      setModels(parsedModels);
     }
 
-    FetchMileages();
-    FetchYearsFab();
-    FetchPrice();
-    FetchVersion();
-    FetchBrands();
     FetchInitialData();
   }, []);
 

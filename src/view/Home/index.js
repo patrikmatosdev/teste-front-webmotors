@@ -14,7 +14,7 @@ const Home = () => {
   const [mileages, setMileages] = useState([]);
 
   useEffect(() => {
-    //Pegar Modelo
+    //Solicitar Dados da API
     async function FetchInitialData() {
       const response = await Axios.get(
         "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"

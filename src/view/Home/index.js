@@ -17,7 +17,7 @@ const Home = () => {
     //Solicitar Dados da API
     async function FetchInitialData() {
       const response = await Axios.get(
-        "https://www.google.ie/gwt/x?u=http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
+        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
       );
 
       //Solicitar Modelos

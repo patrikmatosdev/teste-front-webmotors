@@ -6,7 +6,7 @@ const VehicleButton = (props) => {
     <S.container
       onClick={props.onClick}
       isActive={props.isActive}
-      className="containerVehicleButton"
+      className="container"
     >
       <S.containerIcon className="containerIcon">
         <S.icon className="iconVehicle" icon={props.icon} />

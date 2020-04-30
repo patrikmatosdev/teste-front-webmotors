@@ -6,7 +6,6 @@ export const container = styled.button`
   background: none;
   border: none;
   border-bottom: 2px solid #ddd;
-  margin-bottom: -2px;
   outline: none;
   cursor: pointer;
 
@@ -15,9 +14,15 @@ export const container = styled.button`
     if (props.isActive === true) subclass = "&";
     return `
       ${subclass} {
-        .title {
-          color: #a33 !important;
+        .container {
+          border-bottom: 2px solid #ddd;
         }
+
+        .title {
+          color: #b33 !important;
+        },
+        
+        
       }
     `;
   }};

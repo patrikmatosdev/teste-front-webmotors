@@ -17,7 +17,7 @@ const Home = () => {
     //Solicitar Dados da API
     async function FetchInitialData() {
       const response = await Axios.get(
-        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
+        "https://www.google.ie/gwt/x?u=http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
       );
 
       //Solicitar Modelos
@@ -61,10 +61,10 @@ const Home = () => {
       });
 
       //Solicitar Quilometragem
-      const parsedMileages = response.data.map((yearsFab) => {
+      const parsedMileages = response.data.map((mileages) => {
         return {
-          label: yearsFab.KM,
-          value: yearsFab.ID,
+          label: mileages.KM,
+          value: mileages.ID,
         };
       });
 
@@ -85,6 +85,7 @@ const Home = () => {
         <Header />
         <ShoppingTypes />
         <VehicleSearch
+          key={models.id}
           mileages={mileages}
           yearsFab={yearsFab}
           prices={prices}

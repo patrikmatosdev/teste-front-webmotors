@@ -10,8 +10,8 @@ export const Col = styled.div`
 `;
 
 export const containerButton = styled.div`
+  display: flex;
   flex: 0 0 130px;
-  border-bottom: 3px solid #dddddd;
 `;
 
 export const containerButtonSell = styled.div`

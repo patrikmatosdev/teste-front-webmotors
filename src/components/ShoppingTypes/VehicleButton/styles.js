@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 export const container = styled.button`
   display: flex;
+  flex: 1;
   background: none;
   border: none;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: -2px;
   outline: none;
   cursor: pointer;
 
@@ -17,7 +20,7 @@ export const container = styled.button`
         }
       }
     `;
-  }}
+  }};
 `;
 
 export const containerIcon = styled.div`
@@ -36,24 +39,20 @@ export const icon = styled.div`
 `;
 
 export const containerType = styled.div`
-  flex: 1;
   text-align: left;
 `;
 
-export const containerLabel = styled.div`
-  flex: 1;
-`;
+export const containerLabel = styled.div``;
 
-export const containerTitle = styled.div`
-  flex: 1;
-`;
+export const containerTitle = styled.div``;
 
 export const label = styled.span`
   font-size: 8px;
-  color: #ddd;
+  color: #ccc;
 `;
 
 export const title = styled.span`
   font-size: 16px;
   color: #bbb;
+  font-weight: bold;
 `;

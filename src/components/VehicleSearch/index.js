@@ -13,6 +13,8 @@ const Form = (props) => {
   const [brand, setBrand] = useState();
   const [version, setVersion] = useState();
   const [price, setPrice] = useState();
+  const [checkNewCars, setcheckNewCars] = useState(false);
+  const [checkUsedCars, setCheckUsedCars] = useState(false);
 
   const onChangeYear = (option) => {
     setYear(option.value);
@@ -34,12 +36,28 @@ const Form = (props) => {
     setPrice(option.value);
   };
 
+  const onCheckNewCars = (option) => {
+    setcheckNewCars(option);
+  };
+
+  const onCheckUsedCars = (option) => {
+    setCheckUsedCars(option);
+  };
+
   return (
     <S.container className="containerForm">
       <S.Row>
         <S.containerCheckBox className="containerCheckBox">
-          <CheckBox title="Novos" />
-          <CheckBox title="Usados" checked />
+          <CheckBox
+            title="Novos"
+            checked={checkNewCars}
+            onClick={() => onCheckNewCars(!checkNewCars)}
+          />
+          <CheckBox
+            title="Usados"
+            checked={checkUsedCars}
+            onClick={() => onCheckUsedCars(!checkUsedCars)}
+          />
         </S.containerCheckBox>
       </S.Row>
 

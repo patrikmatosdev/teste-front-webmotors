@@ -11,7 +11,7 @@ export const Col = styled.div`
 
 export const containerButton = styled.div`
   display: flex;
-  flex: 0 0 130px;
+  flex: 0 0 150px;
 `;
 
 export const containerButtonSell = styled.div`

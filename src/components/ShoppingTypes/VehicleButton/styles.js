@@ -15,13 +15,11 @@ export const container = styled.button`
     if (props.isActive === true) subclass = "&";
     return `
       ${subclass} {
-        border-bottom: 2px solid #a33;
+        border-bottom: 2px solid #b80000;
         
         .title {
-          color: #b33 !important;
+          color: #b80000 !important;
         },
-        
-        
       }
     `;
   }};
@@ -29,17 +27,18 @@ export const container = styled.button`
 
 export const containerIcon = styled.div`
   display: flex;
-  flex: 0 0 50px;
-  align-self: center;
+  flex: 0 0 60px;
   justify-content: center;
+  align-self: flex-end;
 `;
 
 export const icon = styled.div`
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   background-image: url('${(props) => props.icon}');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const containerType = styled.div`
@@ -52,11 +51,11 @@ export const containerTitle = styled.div``;
 
 export const label = styled.span`
   font-size: 10px;
-  color: #ccc;
+  color: #999;
 `;
 
 export const title = styled.span`
   font-size: 18px;
-  color: #bbb;
-  font-weight: bold;
+  color: #999;
+  font-weight: 500;
 `;

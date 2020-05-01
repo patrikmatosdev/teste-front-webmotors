@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c0ae683f3783c0efc61cb4dfd1341383",
+    "revision": "fb94b33b4850583d3635ca04c294095b",
     "url": "./index.html"
   },
   {
-    "revision": "4310420c61db8c64fba6",
+    "revision": "75934142e3a9f74a37db",
     "url": "./static/css/main.f2848f00.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/js/2.d9cced83.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4310420c61db8c64fba6",
-    "url": "./static/js/main.eb1f4a18.chunk.js"
+    "revision": "75934142e3a9f74a37db",
+    "url": "./static/js/main.95e40185.chunk.js"
   },
   {
     "revision": "e5c3588d417b60420bc8",
@@ -34,5 +34,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "b5b0e713497de46f684595e8971a2a7d",
     "url": "./static/media/motorcycle.b5b0e713.png"
+  },
+  {
+    "revision": "0b7da11db59b09456a8ea234109d6768",
+    "url": "./static/media/vehicle.0b7da11d.png"
   }
 ]);

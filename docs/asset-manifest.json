@@ -1,25 +1,26 @@
 {
   "files": {
     "main.css": "./static/css/main.f2848f00.chunk.css",
-    "main.js": "./static/js/main.eb1f4a18.chunk.js",
-    "main.js.map": "./static/js/main.eb1f4a18.chunk.js.map",
+    "main.js": "./static/js/main.95e40185.chunk.js",
+    "main.js.map": "./static/js/main.95e40185.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.fc06cb50.js",
     "runtime-main.js.map": "./static/js/runtime-main.fc06cb50.js.map",
     "static/js/2.d9cced83.chunk.js": "./static/js/2.d9cced83.chunk.js",
     "static/js/2.d9cced83.chunk.js.map": "./static/js/2.d9cced83.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.e5bf477c86cff926ae33e34192eed7fc.js": "./precache-manifest.e5bf477c86cff926ae33e34192eed7fc.js",
+    "precache-manifest.764dbfe996f1c1cc590bd13d1d6373ad.js": "./precache-manifest.764dbfe996f1c1cc590bd13d1d6373ad.js",
     "service-worker.js": "./service-worker.js",
     "static/css/main.f2848f00.chunk.css.map": "./static/css/main.f2848f00.chunk.css.map",
     "static/js/2.d9cced83.chunk.js.LICENSE.txt": "./static/js/2.d9cced83.chunk.js.LICENSE.txt",
     "static/media/local.png": "./static/media/local.6c5c1dee.png",
     "static/media/logo.png": "./static/media/logo.c98d478e.png",
-    "static/media/motorcycle.png": "./static/media/motorcycle.b5b0e713.png"
+    "static/media/motorcycle.png": "./static/media/motorcycle.b5b0e713.png",
+    "static/media/vehicle.png": "./static/media/vehicle.0b7da11d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.fc06cb50.js",
     "static/js/2.d9cced83.chunk.js",
     "static/css/main.f2848f00.chunk.css",
-    "static/js/main.eb1f4a18.chunk.js"
+    "static/js/main.95e40185.chunk.js"
   ]
 }

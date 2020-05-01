@@ -33,8 +33,8 @@ export const containerIcon = styled.div`
 `;
 
 export const icon = styled.div`
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   background-image: url('${(props) => props.icon}');
   background-size: contain;
   background-position: center;

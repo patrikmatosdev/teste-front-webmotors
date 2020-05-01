@@ -9,6 +9,7 @@ const Select = (props) => {
     label,
     options,
     containerStyle,
+    description,
   } = props;
 
   const [showOptions, setShowOptions] = useState(false);
@@ -35,7 +36,9 @@ const Select = (props) => {
               <S.label>{label}: </S.label>
             </S.containerLabel>
             <S.containerValue>
-              <S.value>{displayLabel(value)}</S.value>
+              <S.value>
+                {displayLabel(value)} {description}
+              </S.value>
             </S.containerValue>
             <S.containerIcon>
               <S.icon />

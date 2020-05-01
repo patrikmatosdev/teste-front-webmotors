@@ -29,6 +29,7 @@ const IconInput = (props) => {
       </S.locationContainer>
       <S.distanceContainer>
         <Select
+          description={"Km"}
           containerStyle={containerStyle}
           placeholder="Raio"
           label="Raio"

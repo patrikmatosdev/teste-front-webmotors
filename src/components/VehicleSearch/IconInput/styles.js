@@ -43,8 +43,7 @@ export const icon = styled.div`
 `;
 
 export const label = styled.div`
-  color: #ccc;
-  font-weight: bold;
+  color: #999;
   font-size: 14px;
 `;
 

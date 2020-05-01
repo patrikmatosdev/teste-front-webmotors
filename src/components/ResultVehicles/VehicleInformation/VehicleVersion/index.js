@@ -1,12 +1,12 @@
 import React from "react";
 import * as S from "./styles";
 
-const VehiclePrice = ({ price }) => {
+const VehicleVersion = ({ version }) => {
   return (
     <S.container>
-      <S.label>R$ {price}</S.label>
+      <S.label>{version}</S.label>
     </S.container>
   );
 };
 
-export default VehiclePrice;
+export default VehicleVersion;

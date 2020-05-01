@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 
-const VehicleLocalization = () => {
+const VehicleLocalization = ({ localization }) => {
   return (
     <S.container>
       <S.containerIcon>

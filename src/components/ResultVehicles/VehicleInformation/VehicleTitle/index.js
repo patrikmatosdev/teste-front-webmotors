@@ -1,10 +1,12 @@
 import React from "react";
 import * as S from "./styles";
 
-const TitleVehicle = () => {
+const TitleVehicle = (props) => {
   return (
     <S.container>
-      <S.title>MERCEDES-BENZ C 180</S.title>
+      <S.title>
+        {props.title} - {props.model}
+      </S.title>
     </S.container>
   );
 };

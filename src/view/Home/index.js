@@ -97,10 +97,10 @@ const Home = () => {
           models={models}
         />
       </BoxVehicle>
-      <BoxVehicle style={{ backgroundColor: "#eeeee", textAlign: "center" }}>
-        <ResultVehicles listVehicle={listVehicle} />
-        <ResultVehicles listVehicle={listVehicle} />
-        <ResultVehicles listVehicle={listVehicle} />
+      <BoxVehicle style={{ backgroundColor: "#f5f5f5" }}>
+        {listVehicle.map((item) => {
+          return <ResultVehicles key={item.id} items={item} />;
+        })}
       </BoxVehicle>
     </div>
   );

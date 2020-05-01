@@ -4,6 +4,7 @@ import BoxVehicle from "../../components/BoxVehicle";
 import Header from "../../components/Header/index";
 import ShoppingTypes from "../../components/ShoppingTypes";
 import VehicleSearch from "../../components/VehicleSearch";
+import ResultVehicles from "../../components/ResultVehicles";
 
 const Home = () => {
   const [models, setModels] = useState([]);
@@ -12,6 +13,7 @@ const Home = () => {
   const [prices, setPrices] = useState([]);
   const [yearsFab, setYearsFab] = useState([]);
   const [mileages, setMileages] = useState([]);
+  const [listVehicle, setListVehicle] = useState([]);
 
   useEffect(() => {
     //Solicitar Dados da API
@@ -68,6 +70,7 @@ const Home = () => {
         };
       });
 
+      setListVehicle(response.data);
       setMileages(parsedMileages);
       setYearsFab(parsedYearsFab);
       setPrices(parsedPrices);
@@ -93,6 +96,11 @@ const Home = () => {
           brands={brands}
           models={models}
         />
+      </BoxVehicle>
+      <BoxVehicle style={{ backgroundColor: "#eeeee", textAlign: "center" }}>
+        <ResultVehicles listVehicle={listVehicle} />
+        <ResultVehicles listVehicle={listVehicle} />
+        <ResultVehicles listVehicle={listVehicle} />
       </BoxVehicle>
     </div>
   );

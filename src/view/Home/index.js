@@ -14,6 +14,7 @@ const Home = () => {
   const [yearsFab, setYearsFab] = useState([]);
   const [mileages, setMileages] = useState([]);
   const [listVehicle, setListVehicle] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     //Solicitar Dados da API
@@ -70,6 +71,7 @@ const Home = () => {
         };
       });
 
+      setLoading(false);
       setListVehicle(response.data);
       setMileages(parsedMileages);
       setYearsFab(parsedYearsFab);
@@ -98,9 +100,13 @@ const Home = () => {
         />
       </BoxVehicle>
       <BoxVehicle style={{ backgroundColor: "#f5f5f5" }}>
-        {listVehicle.map((item) => {
-          return <ResultVehicles key={item.id} items={item} />;
-        })}
+        {loading ? (
+          <div>carregando...</div>
+        ) : (
+          listVehicle.map((item) => {
+            return <ResultVehicles key={item.id} items={item} />;
+          })
+        )}
       </BoxVehicle>
     </div>
   );

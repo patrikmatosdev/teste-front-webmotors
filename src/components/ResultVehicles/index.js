@@ -4,8 +4,6 @@ import ImageVehicle from "./ImageVehicle/index";
 import VehicleInformation from "./VehicleInformation/index";
 
 const ResultVehicles = ({ items }) => {
-  console.log(items);
-
   return (
     <S.container>
       <ImageVehicle image={items.Image} />

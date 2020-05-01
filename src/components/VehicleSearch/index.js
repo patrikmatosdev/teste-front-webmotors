@@ -83,7 +83,7 @@ const Form = (props) => {
             <S.Col>
               <Select
                 placeholder="Faixa de Preço"
-                label="Preço"
+                label="R$"
                 onChange={onChangePrice}
                 options={props.prices}
                 value={price}

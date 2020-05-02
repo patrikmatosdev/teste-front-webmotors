@@ -5,6 +5,7 @@ import Header from "../../components/Header/index";
 import ShoppingTypes from "../../components/ShoppingTypes";
 import VehicleSearch from "../../components/VehicleSearch";
 import ResultVehicles from "../../components/ResultVehicles";
+import Loading from "../../components/Loading/index";
 
 const Home = () => {
   const [models, setModels] = useState([]);
@@ -22,22 +23,6 @@ const Home = () => {
       const response = await Axios.get(
         "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
       );
-
-      //Solicitar Modelos
-      const parsedModels = response.data.map((model) => {
-        return {
-          label: model.Model,
-          value: model.ID,
-        };
-      });
-
-      //Solicitar Marcas
-      const parsedBrands = response.data.map((brand) => {
-        return {
-          label: brand.Make,
-          value: brand.ID,
-        };
-      });
 
       //Solicitar Versão
       const parsedVersions = response.data.map((version) => {
@@ -77,10 +62,40 @@ const Home = () => {
       setYearsFab(parsedYearsFab);
       setPrices(parsedPrices);
       setVersions(parsedVersions);
+    }
+
+    //Solicitar Marcas
+    async function FetchBrands() {
+      const response = await Axios.get(
+        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make"
+      );
+      const parsedBrands = response.data.map((brand) => {
+        return {
+          label: brand.Name,
+          value: brand.ID,
+        };
+      });
       setBrands(parsedBrands);
+    }
+
+    //Solicitar Modelos
+    async function FetchModels() {
+      const response = await Axios.get(
+        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=0"
+      );
+
+      const parsedModels = response.data.map((model) => {
+        return {
+          label: model.Name,
+          value: model.ID,
+        };
+      });
+
       setModels(parsedModels);
     }
 
+    FetchModels();
+    FetchBrands();
     FetchInitialData();
   }, []);
 
@@ -99,9 +114,9 @@ const Home = () => {
           models={models}
         />
       </BoxVehicle>
-      <BoxVehicle style={{ backgroundColor: "#f5f5f5" }}>
+      <BoxVehicle style={{ backgroundColor: "none", padding: "0" }}>
         {loading ? (
-          <div>carregando...</div>
+          <Loading />
         ) : (
           listVehicle.map((item) => {
             return <ResultVehicles key={item.id} items={item} />;

@@ -1,17 +1,10 @@
 import React from "react";
 import * as S from "./styles";
-
+import LoadingGif from "../../assets/gifs/loading.gif";
 const Loading = () => {
   return (
     <S.container>
-      <iframe
-        title="Loading"
-        src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40"
-        color="#d3d3d3"
-        frameBorder="0"
-        class="giphy-embed"
-        style={{ backgroundColor: "none transparent" }}
-      />
+      <img src={LoadingGif} alt="Loading" width="200" height="200" />
     </S.container>
   );
 };

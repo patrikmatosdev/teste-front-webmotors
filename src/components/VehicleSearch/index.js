@@ -44,6 +44,15 @@ const Form = (props) => {
     setCheckUsedCars(option);
   };
 
+  const ClearData = () => {
+    setBrand("");
+    setModel("");
+    setPrice("");
+    setCheckUsedCars("");
+    setYear("");
+    setVersion("");
+  };
+
   return (
     <S.container className="containerForm">
       <S.Row>
@@ -133,7 +142,7 @@ const Form = (props) => {
           <TogglerLink>Busca Avançada</TogglerLink>
         </S.Col>
         <S.Col>
-          <ButtonsForm />
+          <ButtonsForm onClick={() => ClearData()} />
         </S.Col>
       </S.Row>
     </S.container>

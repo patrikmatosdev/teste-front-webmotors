@@ -24,7 +24,13 @@ export const link = styled.button`
   outline: none;
   cursor: pointer;
   font-size: 14px;
-  color: #ddd;
+  transition: 0.3s;
+  color: #999;
+
+  &:hover,
+  &:focus {
+    color: #bbb;
+  }
 `;
 
 export const buttonOffers = styled.button`

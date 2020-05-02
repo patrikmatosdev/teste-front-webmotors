@@ -114,7 +114,9 @@ const Home = () => {
           models={models}
         />
       </BoxVehicle>
-      <BoxVehicle style={{ backgroundColor: "none", padding: "0" }}>
+      <BoxVehicle
+        style={{ backgroundColor: "none", padding: "0", textAlign: "center" }}
+      >
         {loading ? (
           <Loading />
         ) : (

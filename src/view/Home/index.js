@@ -9,7 +9,7 @@ import Loading from "../../components/Loading/index";
 
 const Home = () => {
   const [models, setModels] = useState([]);
-  const [brands, setBrands] = useState([]);
+  const [brand, setBrand] = useState([]);
   const [versions, setVersions] = useState([]);
   const [prices, setPrices] = useState([]);
   const [yearsFab, setYearsFab] = useState([]);
@@ -64,41 +64,31 @@ const Home = () => {
       setVersions(parsedVersions);
     }
 
-    //Solicitar Marcas
-    async function FetchBrands() {
-      const response = await Axios.get(
-        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make"
-      );
-      const parsedBrands = response.data.map((brand) => {
-        return {
-          label: brand.Name,
-          value: brand.ID,
-        };
-      });
-      setBrands(parsedBrands);
-    }
-
-    //Solicitar Modelos
-    async function FetchModels() {
-      const response = await Axios.get(
-        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=0"
-      );
-
-      const parsedModels = response.data.map((model) => {
-        return {
-          label: model.Name,
-          value: model.ID,
-        };
-      });
-
-      setModels(parsedModels);
-    }
-
-    FetchModels();
-    FetchBrands();
     FetchInitialData();
   }, []);
 
+  //Solicitar Modelos
+  async function FetchModels() {
+    if (!brand.value) return;
+    const response = await Axios.get(
+      `http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=${brand.value}`
+    );
+
+    const parsedModels = response.data.map((model) => {
+      return {
+        label: model.Name,
+        value: model.MakeID,
+      };
+    });
+
+    setModels(parsedModels);
+  }
+
+  const onChangeFilter = (a) => {
+    alert(a);
+  };
+
+  console.log(brand);
   return (
     <div className="container">
       <BoxVehicle>
@@ -110,8 +100,9 @@ const Home = () => {
           yearsFab={yearsFab}
           prices={prices}
           versions={versions}
-          brands={brands}
+          brands={brand}
           models={models}
+          onChange={() => onChangeFilter()}
         />
       </BoxVehicle>
       <BoxVehicle

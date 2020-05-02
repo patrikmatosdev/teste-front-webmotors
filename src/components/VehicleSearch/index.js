@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import * as S from "./styles";
 import CheckBox from "../Form/Checkbox";
 import IconInput from "./IconInput";
@@ -7,7 +8,7 @@ import Select from "../Form/Select";
 import TogglerLink from "../Form/TogglerLink";
 import ButtonsForm from "../Form/ButtonsForm/index";
 
-const Form = (props) => {
+const VehicleSearch = (props) => {
   const [year, setYear] = useState();
   const [model, setModel] = useState();
   const [brand, setBrand] = useState();
@@ -15,25 +16,37 @@ const Form = (props) => {
   const [price, setPrice] = useState();
   const [checkNewCars, setcheckNewCars] = useState(false);
   const [checkUsedCars, setCheckUsedCars] = useState(false);
+  const [brands, setBrands] = useState([]);
+
+  const TriggerChange = () => {
+    const response = {};
+
+    props.onChange(response);
+  };
 
   const onChangeYear = (option) => {
     setYear(option.value);
+    TriggerChange();
   };
 
   const onChangeModel = (option) => {
     setModel(option.value);
+    props.onChangeModel(option.value);
   };
 
   const onChangeBrand = (option) => {
     setBrand(option.value);
+    TriggerChange();
   };
 
   const onChangeVersion = (option) => {
     setVersion(option.value);
+    TriggerChange();
   };
 
   const onChangePrice = (option) => {
     setPrice(option.value);
+    TriggerChange();
   };
 
   const onCheckNewCars = (option) => {
@@ -52,6 +65,24 @@ const Form = (props) => {
     setYear("");
     setVersion("");
   };
+
+  useEffect(() => {
+    FetchBrands();
+  }, []);
+
+  //Solicitar Marcas
+  async function FetchBrands() {
+    const response = await Axios.get(
+      "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make"
+    );
+    const parsedBrands = response.data.map((brand) => {
+      return {
+        label: brand.Name,
+        value: brand.ID,
+      };
+    });
+    setBrands(parsedBrands);
+  }
 
   return (
     <S.container className="containerForm">
@@ -108,7 +139,7 @@ const Form = (props) => {
                 label="Marca"
                 placeholder="Marca:"
                 value={brand}
-                options={props.brands}
+                options={brands}
                 onChange={onChangeBrand}
               />
             </S.Col>
@@ -149,4 +180,4 @@ const Form = (props) => {
   );
 };
 
-export default Form;
+export default VehicleSearch;

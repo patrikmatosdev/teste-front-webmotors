@@ -18,6 +18,7 @@ const VehicleSearch = (props) => {
   const [checkUsedCars, setCheckUsedCars] = useState(false);
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
+  const [versions, setVersions] = useState([]);
 
   const onChangeYear = (option) => {
     setYear(option.value);
@@ -25,7 +26,8 @@ const VehicleSearch = (props) => {
 
   const onChangeModel = (option) => {
     setModel(option.value);
-    console.log("Chegando...", option);
+    FetchVersions(option.value);
+    console.log(" chegando ", option);
   };
 
   const onChangeBrand = (option) => {
@@ -88,6 +90,20 @@ const VehicleSearch = (props) => {
       };
     });
     setModels(parsedModels);
+  }
+
+  async function FetchVersions(modelId) {
+    const response = await Axios.get(
+      `http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=${modelId}`
+    );
+
+    const parsedVersions = response.data.map((version) => {
+      return {
+        label: version.Name,
+        value: version.ID,
+      };
+    });
+    setVersions(parsedVersions);
   }
 
   return (
@@ -166,7 +182,7 @@ const VehicleSearch = (props) => {
                 placeholder="Versão:"
                 label="Versão"
                 onChange={onChangeVersion}
-                options={props.versions}
+                options={versions}
                 value={version}
               />
             </S.Col>

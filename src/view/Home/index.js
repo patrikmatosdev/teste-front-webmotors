@@ -84,11 +84,12 @@ const Home = () => {
     setModels(parsedModels);
   }
 
-  const onChangeFilter = (a) => {
-    alert(a);
+  // Funçao chamada quando o usuário preencher os filtros e clicar em pesquisar
+  const onChangeFilter = (ValuesVehicle) => {
+    console.log(JSON.stringify(ValuesVehicle));
+    alert(JSON.stringify(ValuesVehicle));
   };
 
-  console.log(brand);
   return (
     <div className="container">
       <BoxVehicle>
@@ -101,7 +102,7 @@ const Home = () => {
           prices={prices}
           versions={versions}
           models={models}
-          onChange={() => onChangeFilter()}
+          onChange={(ValuesVehicle) => onChangeFilter(ValuesVehicle)}
         />
       </BoxVehicle>
       <BoxVehicle

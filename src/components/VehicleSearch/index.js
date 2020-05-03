@@ -27,7 +27,6 @@ const VehicleSearch = (props) => {
   const onChangeModel = (option) => {
     setModel(option.value);
     FetchVersions(option.value);
-    console.log(" chegando ", option);
   };
 
   const onChangeBrand = (option) => {
@@ -105,6 +104,21 @@ const VehicleSearch = (props) => {
     });
     setVersions(parsedVersions);
   }
+
+  const onSearch = () => {
+    const valuesVehicle = {
+      // @TODO ~ Pegar City e Radius do ICONINPUT
+      city: "",
+      radius: "",
+      brand: brand,
+      model: model,
+      version: version,
+      year: year,
+      price: price,
+    };
+
+    props.onChange(valuesVehicle);
+  };
 
   return (
     <S.container className="containerForm">
@@ -195,7 +209,10 @@ const VehicleSearch = (props) => {
           <TogglerLink>Busca Avançada</TogglerLink>
         </S.Col>
         <S.Col>
-          <ButtonsForm onClick={() => ClearData()} />
+          <ButtonsForm
+            onClickSearch={() => onSearch()}
+            onClickClear={() => ClearData()}
+          />
         </S.Col>
       </S.Row>
     </S.container>

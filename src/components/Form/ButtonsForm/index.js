@@ -1,15 +1,15 @@
 import React from "react";
 import * as S from "./styles";
 
-const ButtonsForm = ({ onClick }) => {
+const ButtonsForm = ({ onClickSearch, onClickClear }) => {
   return (
     <S.container>
       <S.Row>
         <S.col style={{ flex: "0 0 100px" }}>
-          <S.link onClick={onClick}>Limpar Filtros</S.link>
+          <S.link onClick={onClickClear}>Limpar Filtros</S.link>
         </S.col>
         <S.col>
-          <S.buttonOffers>Obter Ofertas</S.buttonOffers>
+          <S.buttonOffers onClick={onClickSearch}>Obter Ofertas</S.buttonOffers>
         </S.col>
       </S.Row>
     </S.container>

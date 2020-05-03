@@ -11,10 +11,9 @@ export const container = styled.div`
   transition: 0.3s;
   border: 1px solid #ccc;
   text-align: left;
+  box-shadow: 1px 1px 2px #ccc;
 
   &:hover {
-    -webkit-box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 6px #bbb;
   }
 `;

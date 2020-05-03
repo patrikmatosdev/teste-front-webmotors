@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const container = styled.div`
-  background-color: #ffffff;
   padding: 30px 15px;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 2px #aaa;
 `;
 
 export const containerCheckBox = styled.div``;

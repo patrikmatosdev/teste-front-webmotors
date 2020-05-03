@@ -10,4 +10,5 @@ body,
 html {
   font-family: "Open Sans", sans-serif;
   cursor: default;
+  background: #eee;
 }

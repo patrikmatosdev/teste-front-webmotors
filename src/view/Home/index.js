@@ -100,7 +100,6 @@ const Home = () => {
           yearsFab={yearsFab}
           prices={prices}
           versions={versions}
-          brands={brand}
           models={models}
           onChange={() => onChangeFilter()}
         />

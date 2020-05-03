@@ -17,36 +17,28 @@ const VehicleSearch = (props) => {
   const [checkNewCars, setcheckNewCars] = useState(false);
   const [checkUsedCars, setCheckUsedCars] = useState(false);
   const [brands, setBrands] = useState([]);
-
-  const TriggerChange = () => {
-    const response = {};
-
-    props.onChange(response);
-  };
+  const [models, setModels] = useState([]);
 
   const onChangeYear = (option) => {
     setYear(option.value);
-    TriggerChange();
   };
 
   const onChangeModel = (option) => {
     setModel(option.value);
-    props.onChangeModel(option.value);
+    console.log("Chegando...", option);
   };
 
   const onChangeBrand = (option) => {
     setBrand(option.value);
-    TriggerChange();
+    FetchModels(option.value);
   };
 
   const onChangeVersion = (option) => {
     setVersion(option.value);
-    TriggerChange();
   };
 
   const onChangePrice = (option) => {
     setPrice(option.value);
-    TriggerChange();
   };
 
   const onCheckNewCars = (option) => {
@@ -82,6 +74,20 @@ const VehicleSearch = (props) => {
       };
     });
     setBrands(parsedBrands);
+  }
+
+  async function FetchModels(brandId) {
+    const response = await Axios.get(
+      `http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=${brandId}`
+    );
+
+    const parsedModels = response.data.map((model) => {
+      return {
+        label: model.Name,
+        value: model.ID,
+      };
+    });
+    setModels(parsedModels);
   }
 
   return (
@@ -148,7 +154,7 @@ const VehicleSearch = (props) => {
               <Select
                 label="Modelo"
                 onChange={onChangeModel}
-                options={props.models}
+                options={models}
                 value={model}
                 placeholder="Modelo:"
               />

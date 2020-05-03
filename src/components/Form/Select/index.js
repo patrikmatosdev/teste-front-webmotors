@@ -10,6 +10,7 @@ const Select = (props) => {
     options,
     containerStyle,
     description,
+    key,
   } = props;
 
   const [showOptions, setShowOptions] = useState(false);
@@ -61,6 +62,7 @@ const Select = (props) => {
           {options.map((op) => {
             return (
               <S.option
+                key={op.value}
                 onClick={() => _onChange(op)}
                 current={value === op.value}
               >

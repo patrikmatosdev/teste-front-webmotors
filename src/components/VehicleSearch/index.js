@@ -19,6 +19,8 @@ const VehicleSearch = (props) => {
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
   const [versions, setVersions] = useState([]);
+  const [prices, setPrices] = useState([{ label: 1, value: 1 }]);
+  const [years, setYears] = useState([{ label: 2020, value: 1 }]);
 
   const onChangeYear = (option) => {
     setYear(option.value);
@@ -40,6 +42,7 @@ const VehicleSearch = (props) => {
 
   const onChangePrice = (option) => {
     setPrice(option.value);
+    console.log("chegou", option);
   };
 
   const onCheckNewCars = (option) => {
@@ -141,7 +144,11 @@ const VehicleSearch = (props) => {
         <S.containerItems className="containerItems">
           <S.Row>
             <S.Col>
-              <IconInput mileages={props.mileages} icon={Image} />
+              <IconInput
+                city={"São Paulo - SP"}
+                mileages={props.mileages}
+                icon={Image}
+              />
             </S.Col>
           </S.Row>
 
@@ -151,17 +158,18 @@ const VehicleSearch = (props) => {
                 placeholder="Ano Desejado"
                 label="Ano"
                 onChange={onChangeYear}
-                options={props.yearsFab}
+                options={years}
                 value={year}
               />
             </S.Col>
 
             <S.Col>
               <Select
+                key={prices.value}
                 placeholder="Faixa de Preço"
                 label="R$"
                 onChange={onChangePrice}
-                options={props.prices}
+                options={prices}
                 value={price}
               />
             </S.Col>

@@ -8,14 +8,9 @@ import ResultVehicles from "../../components/ResultVehicles";
 import Loading from "../../components/Loading/index";
 
 const Home = () => {
-  const [models, setModels] = useState([]);
-  const [brand, setBrand] = useState([]);
-  const [versions, setVersions] = useState([]);
-  const [prices, setPrices] = useState([]);
-  const [yearsFab, setYearsFab] = useState([]);
-  const [mileages, setMileages] = useState([]);
   const [listVehicle, setListVehicle] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
     //Solicitar Dados da API
@@ -24,70 +19,15 @@ const Home = () => {
         "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
       );
 
-      //Solicitar Versão
-      const parsedVersions = response.data.map((version) => {
-        return {
-          label: version.Version,
-          value: version.ID,
-        };
-      });
-
-      //Solicitar Preços
-      const parsedPrices = response.data.map((price) => {
-        return {
-          label: price.Price,
-          value: price.ID,
-        };
-      });
-
-      // Solicitar Anos da Fabricação
-      const parsedYearsFab = response.data.map((yearsFab) => {
-        return {
-          label: yearsFab.YearFab,
-          value: yearsFab.ID,
-        };
-      });
-
-      //Solicitar Quilometragem
-      const parsedMileages = response.data.map((mileages) => {
-        return {
-          label: mileages.KM,
-          value: mileages.ID,
-        };
-      });
-
-      setLoading(false);
       setListVehicle(response.data);
-      setMileages(parsedMileages);
-      setYearsFab(parsedYearsFab);
-      setPrices(parsedPrices);
-      setVersions(parsedVersions);
+      setLoading(false);
     }
-
     FetchInitialData();
   }, []);
 
-  //Solicitar Modelos
-  async function FetchModels() {
-    if (!brand.value) return;
-    const response = await Axios.get(
-      `http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=${brand.value}`
-    );
-
-    const parsedModels = response.data.map((model) => {
-      return {
-        label: model.Name,
-        value: model.MakeID,
-      };
-    });
-
-    setModels(parsedModels);
-  }
-
   // Funçao chamada quando o usuário preencher os filtros e clicar em pesquisar
   const onChangeFilter = (ValuesVehicle) => {
-    console.log(JSON.stringify(ValuesVehicle));
-    alert(JSON.stringify(ValuesVehicle));
+    setFiltered(ValuesVehicle);
   };
 
   return (
@@ -96,12 +36,6 @@ const Home = () => {
         <Header />
         <ShoppingTypes />
         <VehicleSearch
-          key={models.id}
-          mileages={mileages}
-          yearsFab={yearsFab}
-          prices={prices}
-          versions={versions}
-          models={models}
           onChange={(ValuesVehicle) => onChangeFilter(ValuesVehicle)}
         />
       </BoxVehicle>
@@ -112,7 +46,7 @@ const Home = () => {
           <Loading />
         ) : (
           listVehicle.map((item) => {
-            return <ResultVehicles key={item.id} items={item} />;
+            return <ResultVehicles key={item.ID} items={item} />;
           })
         )}
       </BoxVehicle>

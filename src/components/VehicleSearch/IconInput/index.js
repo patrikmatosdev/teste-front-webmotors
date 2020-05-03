@@ -9,9 +9,14 @@ const IconInput = (props) => {
   };
 
   const [distanceOptions, setDistanceOptions] = useState();
+  const [city, setCity] = useState();
 
   const onChangeDistance = (option) => {
     setDistanceOptions(option.value);
+  };
+
+  const onChangeCity = (option) => {
+    setCity(option.value);
   };
 
   return (
@@ -24,7 +29,12 @@ const IconInput = (props) => {
           <S.label>Onde:</S.label>
         </S.containerLabel>
         <S.containerInput>
-          <S.input type="text" value="São Paulo - SP" />
+          <S.input
+            type="text"
+            placeholder="São Paulo - SP"
+            onChange={onChangeCity}
+            value={city}
+          />
         </S.containerInput>
       </S.locationContainer>
       <S.distanceContainer>

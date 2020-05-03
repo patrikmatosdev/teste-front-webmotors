@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const container = styled.div`
   display: flex;
   padding-right: 15px;
+
+  @media (max-width: 630px) {
+    margin-top: 15px;
+  }
 `;
 
 export const Row = styled.div`
@@ -42,4 +46,5 @@ export const buttonOffers = styled.button`
   border: none;
   cursor: pointer;
   outline: none;
+  border-radius: 5px;
 `;

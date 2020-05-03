@@ -9,10 +9,14 @@ import Loading from "../../components/Loading/index";
 import styled from "styled-components";
 
 const ItemWrapper = styled.div`
-  display: inline-block;
-  vertical-align: top;
-  width: 33%;
-  text-align: ${(props) => props.column};
+  text-align: center;
+
+  @media (min-width: 950px) {
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+    text-align: ${(props) => props.column};
+  }
 `;
 
 const Home = () => {

@@ -19,4 +19,8 @@ export const Button = styled.button`
     background-color: #ff8c00;
     color: #ffffff;
   }
+
+  @media (max-width: 515px) {
+    display: none;
+  }
 `;

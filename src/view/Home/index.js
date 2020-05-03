@@ -6,12 +6,20 @@ import ShoppingTypes from "../../components/ShoppingTypes";
 import VehicleSearch from "../../components/VehicleSearch";
 import ResultVehicles from "../../components/ResultVehicles";
 import Loading from "../../components/Loading/index";
+import styled from "styled-components";
+
+const ItemWrapper = styled.div`
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
+  text-align: ${(props) => props.column};
+`;
 
 const Home = () => {
   const [listVehicle, setListVehicle] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filtered, setFiltered] = useState([]);
-
+  let textAlign;
   async function FetchVehicles() {
     setLoading(true);
 
@@ -36,7 +44,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <BoxVehicle>
+      <BoxVehicle style={{ padding: 10 }}>
         <Header />
         <ShoppingTypes />
         <VehicleSearch
@@ -46,14 +54,29 @@ const Home = () => {
       <BoxVehicle
         style={{
           backgroundColor: "#ffffff",
-          padding: "none",
+          padding: 0,
         }}
       >
         {loading ? (
           <Loading />
         ) : (
-          listVehicle.map((item) => {
-            return <ResultVehicles key={item.ID} items={item} />;
+          listVehicle.map((item, index) => {
+            if (!textAlign || textAlign === "right") {
+              textAlign = "left";
+            } else if (textAlign === "left") {
+              textAlign = "center";
+            } else if (textAlign === "center") {
+              textAlign = "right";
+            }
+            return (
+              <ItemWrapper
+                column={textAlign}
+                className="itemWrapper"
+                key={item.ID}
+              >
+                <ResultVehicles className="a" items={item} />
+              </ItemWrapper>
+            );
           })
         )}
       </BoxVehicle>

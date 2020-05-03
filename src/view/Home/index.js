@@ -12,22 +12,26 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [filtered, setFiltered] = useState([]);
 
+  async function FetchVehicles() {
+    setLoading(true);
+
+    const response = await Axios.get(
+      "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
+    );
+
+    setListVehicle(response.data);
+    setLoading(false);
+  }
+
   useEffect(() => {
     //Solicitar Dados da API
-    async function FetchInitialData() {
-      const response = await Axios.get(
-        "http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1"
-      );
-
-      setListVehicle(response.data);
-      setLoading(false);
-    }
-    FetchInitialData();
-  }, []);
+    FetchVehicles();
+    console.log("Filtrando => ", filtered);
+  }, [filtered]);
 
   // Funçao chamada quando o usuário preencher os filtros e clicar em pesquisar
-  const onChangeFilter = (ValuesVehicle) => {
-    setFiltered(ValuesVehicle);
+  const onChangeFilter = (filters) => {
+    setFiltered(filters);
   };
 
   return (
@@ -40,7 +44,10 @@ const Home = () => {
         />
       </BoxVehicle>
       <BoxVehicle
-        style={{ backgroundColor: "none", padding: "0", textAlign: "center" }}
+        style={{
+          backgroundColor: "#ffffff",
+          padding: "none",
+        }}
       >
         {loading ? (
           <Loading />

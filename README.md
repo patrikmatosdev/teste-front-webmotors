@@ -9,4 +9,4 @@
 
 ![dashboard](/screenshot/screenshot.png)
 
-![responsive](/screensho/responsiveLayout.png)
+![responsive](/screenshot/responsiveLayout.png)

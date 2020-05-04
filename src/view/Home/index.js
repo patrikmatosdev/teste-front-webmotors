@@ -39,7 +39,6 @@ const Home = () => {
   useEffect(() => {
     //Solicitar Dados da API
     FetchVehicles();
-    console.log("Filtrando => ", filtered);
   }, [filtered]);
 
   // Funçao chamada quando o usuário preencher os filtros e clicar em pesquisar

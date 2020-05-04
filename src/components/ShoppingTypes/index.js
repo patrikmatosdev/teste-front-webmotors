@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import * as S from "./styles";
 import VehicleButton from "./VehicleButton/index";
 import vehicle from "../../assets/img/vehicle.png";
-import Car from "../../assets/img/car.png";
 import Motorcycle from "../../assets/img/motorcycle.png";
 import ButtonSell from "./ButtonSell";
 

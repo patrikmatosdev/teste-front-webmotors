@@ -10,7 +10,6 @@ const Select = (props) => {
     options,
     containerStyle,
     description,
-    key,
   } = props;
 
   const [showOptions, setShowOptions] = useState(false);

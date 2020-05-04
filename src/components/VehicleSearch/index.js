@@ -19,8 +19,19 @@ const VehicleSearch = (props) => {
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
   const [versions, setVersions] = useState([]);
-  const [prices, setPrices] = useState([{ label: 1, value: 1 }]);
-  const [years, setYears] = useState([{ label: 2020, value: 1 }]);
+  const [prices, setPrices] = useState([
+    { label: "20000,00-40000,00", value: 1 },
+    { label: "400000,00-60000,00", value: 2 },
+    { label: "600000,00-80000,00", value: 3 },
+  ]);
+  const [years, setYears] = useState([
+    { label: 2020, value: 1 },
+    { label: 2019, value: 2 },
+    { label: 2018, value: 3 },
+    { label: 2017, value: 4 },
+    { label: 2016, value: 5 },
+    { label: 2015, value: 6 },
+  ]);
 
   const onChangeYear = (option) => {
     setYear(option.value);
@@ -42,7 +53,6 @@ const VehicleSearch = (props) => {
 
   const onChangePrice = (option) => {
     setPrice(option.value);
-    console.log("chegou", option);
   };
 
   const onCheckNewCars = (option) => {
